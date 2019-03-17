@@ -16,16 +16,6 @@ const routes: Routes = [
     component: CoursesComponent,
     canActivate: [AuthGuardService]
   }
-  // {
-  //   path: 'course/home',
-  //   component: SidebarComponent,
-  //   outlet: 'secondary'
-  // },
-  // {
-  //   path: '',
-  //   component: SidebarComponent,
-  //   outlet: 'secondary'
-  // }
 ];
 
 @NgModule({

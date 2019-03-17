@@ -7,6 +7,8 @@ import { RegisterComponent } from './register/register.component';
 import { MatSelectModule } from '@angular/material';
 import { HomePageRegisterService } from './home-page-register.service';
 import { NgbAlertModule } from '@ng-bootstrap/ng-bootstrap';
+import { SidebarModule } from '../sidebar/sidebar.module';
+
 
 @NgModule({
     declarations: [
@@ -18,7 +20,8 @@ import { NgbAlertModule } from '@ng-bootstrap/ng-bootstrap';
       ReactiveFormsModule,
       HomePageRoutingModule,
       MatSelectModule,
-      NgbAlertModule
+      NgbAlertModule,
+      SidebarModule
     ],
     providers: [
       HomePageRegisterService

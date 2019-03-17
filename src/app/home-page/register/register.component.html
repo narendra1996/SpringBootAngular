@@ -1,3 +1,4 @@
+<app-sidebar></app-sidebar>
 <p class = "alertclass" *ngIf = showAlert>
     <ngb-alert [type]="alertType"><strong>{{ alertMessage }}</strong></ngb-alert>
 </p>
@@ -10,22 +11,22 @@
               <label for="firstName"><h6><strong>First Name</strong></h6></label>
               <input type="text" formControlName="firstName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" />
               <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
-                  <div *ngIf="f.firstName.errors.required"><strong>Name is required</strong></div>
+                  <div *ngIf="f.firstName.errors.required"><strong>First Name required</strong></div>
               </div>
           </div>
           <div class="form-group">
               <label for="lastName"><h6><strong>Last Name</strong></h6></label>
               <input type="text" formControlName="lastName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" />
               <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
-                  <div *ngIf="f.lastName.errors.required"><strong>Last Name is required</strong></div>
+                  <div *ngIf="f.lastName.errors.required"><strong>Last Name required</strong></div>
               </div>
           </div>
           <div class="form-group">
               <label for="email"><h6><strong>Email</strong></h6></label>
               <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
               <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
-                  <div *ngIf="f.email.errors.required"><strong>Email is required</strong></div>
-                  <div *ngIf="f.email.errors.email"><strong>Email address is not valid</strong></div>
+                  <div *ngIf="f.email.errors.required"><strong>Email required</strong></div>
+                  <div *ngIf="f.email.errors.email"><strong>Email Id is not valid</strong></div>
               </div>
           </div>
           <div class="form-group" >
@@ -35,20 +36,20 @@
                   <mat-option  class="not-empty-select" value="S">Student</mat-option>
                   <mat-option  class="not-empty-select" value="I">Instructor</mat-option>
                 </mat-select>
-                <mat-error *ngIf="f.accountType.errors">Please select an AccountType</mat-error>
+                <mat-error *ngIf="f.accountType.errors"><strong>AccountType required</strong></mat-error>
             </mat-form-field>
           </div>
           <div class="form-group">
               <label for="password"><h6><strong>Password</strong></h6></label>
               <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
               <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
-                  <div *ngIf="f.password.errors.required"><strong>Password is required</strong></div>
-                  <div *ngIf="f.password.errors.minlength"><strong>Password must be at least 8 characters</strong></div>
+                  <div *ngIf="f.password.errors.required"><strong>Password required</strong></div>
+                  <div *ngIf="f.password.errors.minlength"><strong>Choose a Password of at least 8 characters</strong></div>
               </div>
           </div>
           <div class="form-group">
               <button [disabled]="loading" class="btn btn-primary">Register</button>
-              <a [routerLink]="['/']" class="btn btn-link">Cancel</a>
+              <a [routerLink]="['/']" class="btn btn-link"><strong>Login</strong></a>
           </div>
       </form>
     </div>

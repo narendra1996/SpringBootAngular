@@ -1,0 +1,37 @@
+ul {
+    list-style-type: none;
+    margin:0;padding:0;
+
+    li {
+        background: rgb(213, 216, 215);
+        border-radius: 10px;
+        padding: 12px;
+        margin-bottom: 8px;
+
+        a {
+            font-size: 1.5em;
+            text-decoration: none;
+            font-weight: bold;
+            color:rgb(17, 17, 17);
+            text-align: center;
+        }
+
+        ul {
+            margin-top: 20px;
+            
+            li {
+                padding:0;
+
+                a {
+                    font-size: 1em;
+                    font-weight: 300;
+                }
+            }
+        }
+    }
+}
+h2 {
+margin-top: -60px;
+margin-bottom: 20px;
+font-size: 1.85rem;
+}

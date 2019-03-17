@@ -5,9 +5,14 @@ import { MatSelectModule } from '@angular/material';
 import { NgbAlertModule } from '@ng-bootstrap/ng-bootstrap';
 import { CoursesComponent } from './courses.component';
 import { CoursesRoutingModule } from './courses-routing.module';
+import { AddCourseComponent } from './add-course/add-course.component';
+import { SidebarComponent } from '../sidebar/sidebar.component';
+import { SidebarModule } from '../sidebar/sidebar.module';
+
 
 @NgModule({
     declarations: [
+      AddCourseComponent
 ],
     imports: [
       BrowserModule,
@@ -15,7 +20,8 @@ import { CoursesRoutingModule } from './courses-routing.module';
       ReactiveFormsModule,
       CoursesRoutingModule,
       MatSelectModule,
-      NgbAlertModule
+      NgbAlertModule,
+      SidebarModule
     ],
     providers: [],
     bootstrap: [CoursesComponent]

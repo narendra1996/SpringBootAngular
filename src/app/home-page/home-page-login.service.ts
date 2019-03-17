@@ -18,5 +18,13 @@ export class HomePageLoginService {
     return this.http.post('http://localhost:9090/SpringBoot/course/login', jsonBody);
   }
 
+  logoutUser() {
+    if (localStorage.getItem('currentUser')) {
+      localStorage.removeItem('currentUser');
+      return;
+    } else {
+      return;
+    }
+  }
 
 }

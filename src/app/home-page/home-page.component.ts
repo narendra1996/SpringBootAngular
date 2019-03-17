@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { HomePageLoginService } from './home-page-login.service';
+import { DataStoreService } from '../data-store.service';
 
 @Component({
   selector: 'app-home-page',
@@ -22,10 +23,11 @@ export class HomePageComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
-    private loginUser: HomePageLoginService) { }
+    private loginUser: HomePageLoginService,
+    private storeData: DataStoreService) { }
 
     ngOnInit() {
-      localStorage.removeItem('currentUser');
+      this.loginUser.logoutUser();
       this.loginForm = this.formBuilder.group({
         email: ['', [Validators.required, Validators.email]],
         password: ['', [Validators.required, Validators.minLength(8)]]
@@ -44,7 +46,7 @@ export class HomePageComponent implements OnInit {
       this.loginUser.loginUser(this.loginForm).subscribe(success => {
           console.log(success);
           localStorage.setItem('currentUser', 'narendra');
-          this.routetoCourse();
+          this.routetoCourse(success);
           }, error => {
             console.log(error);
             this.showErrMsg(error);
@@ -52,11 +54,9 @@ export class HomePageComponent implements OnInit {
       console.log(status);
     }
 
-    routetoCourse() {
-      // this.router.navigate(['/course/home']);
-      // this.router.navigateByUrl('/sidebar', { skipLocationChange: true });
-      window.location.reload();
-      this.router.navigate(['/course/home']);
+    routetoCourse(success: any) {
+      this.storeData.storeData(success.data);
+      this.router.navigateByUrl('/course/home');
     }
 
     showErrMsg(error: any) {
