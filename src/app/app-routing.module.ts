@@ -1,15 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { HomePageComponent } from './home-page/home-page.component';
 import { CoursesComponent } from './courses/courses.component';
-import { SidebarComponent } from './sidebar/sidebar.component';
 import { AuthGuardService } from './auth-guard.service';
-import { AppComponent } from './app.component';
+import { LoginComponent } from './home-page/login/login.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: HomePageComponent
+    component: LoginComponent
   },
   {
     path: 'course/home',

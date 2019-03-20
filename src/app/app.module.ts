@@ -5,20 +5,18 @@ import { AppComponent } from './app.component';
 import {HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HomePageComponent } from './home-page/home-page.component';
 import { HomePageModule } from './home-page/home-page.module';
 import { AuthGuardService } from './auth-guard.service';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { CoursesComponent } from './courses/courses.component';
 import { CoursesModule } from './courses/courses.module';
 import { DataStoreService } from './data-store.service';
-import { SidebarComponent } from './sidebar/sidebar.component';
 import { SidebarModule } from './sidebar/sidebar.module';
-
+import { StudentModule } from './student/student.module';
+import { InstructorModule } from './instructor/instructor.module';
 @NgModule({
   declarations: [
     AppComponent,
-    HomePageComponent,
     CoursesComponent
   ],
   imports: [
@@ -31,7 +29,9 @@ import { SidebarModule } from './sidebar/sidebar.module';
     BrowserAnimationsModule,
     NgbModule,
     CoursesModule,
-    SidebarModule
+    SidebarModule,
+    StudentModule,
+    InstructorModule
   ],
   providers: [
     AuthGuardService,
