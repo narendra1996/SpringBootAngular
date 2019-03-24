@@ -5,9 +5,12 @@
 :host /deep/ .mat-select-value-text {
     color:black !important;
 }
-.AccountType{
-    padding-right: 30px;
+:host /deep/ .mat-form-field-label-wrapper .mat-form-field-label {
+    color:rgb(0, 0, 0) !important;
 }
+// .AccountType{
+//     padding-right: 30px;
+// }
 .row{
     margin-top: -100px;
 }
@@ -28,6 +31,9 @@
 .btn-link {
     color:black;
 }
-a{
-    margin-left:15px;
+h6{
+    margin-bottom: -10px;
 }
+// .mat-select-placeholder + .mat-input-placeholder-wrapper .mat-input-placeholder {
+//     color:white !important;
+// }
