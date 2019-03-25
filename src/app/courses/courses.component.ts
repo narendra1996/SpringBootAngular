@@ -17,9 +17,9 @@ export class CoursesComponent implements OnInit {
   constructor(private dataService: DataStoreService, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.userData = this.dataService.retrieveData();
-    this.firstName = this.userData.firstName;
-    console.log(this.userData);
+    // this.userData = this.dataService.retrieveData();
+    // this.firstName = this.userData.firstName;
+    // console.log(this.userData);
     this.route.paramMap.subscribe(params => {
       this.id = params.get('id');
     });

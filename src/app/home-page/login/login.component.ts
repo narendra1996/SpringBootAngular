@@ -55,7 +55,7 @@ export class LoginComponent implements OnInit {
   }
 
   routetoCourse(success: any) {
-    this.storeData.storeData(success.data);
+    // this.storeData.storeData(success.data);
     this.router.navigate(['/course/home', { id: success.data.id }]);
   }
 
