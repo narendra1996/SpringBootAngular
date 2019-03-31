@@ -3,9 +3,12 @@ import { CommonModule } from '@angular/common';
 
 import { StudentRoutingModule } from './student-routing.module';
 import { SidebarModule } from '../sidebar/sidebar.module';
+import { HomePageComponent } from './home-page/home-page.component';
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    HomePageComponent
+  ],
   imports: [
     CommonModule,
     StudentRoutingModule,

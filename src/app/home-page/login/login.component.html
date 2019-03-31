@@ -2,7 +2,7 @@
 <p class = "alertclass" *ngIf = showAlert>
     <ngb-alert [type]="alertType"><strong>{{ alertMessage }}</strong></ngb-alert>
 </p>  
- <div class="container">
+<div class="container">
     <div class="row">
         <div class="col-sm-4 offset-sm-3">
             <strong><h2>Login</h2></strong>
@@ -30,7 +30,7 @@
                 </div>
                 <div class="form-group">
                   <a [routerLink]="['/register']" class="btn btn-link"><strong>Register</strong></a>
-                  <a  class="btn btn-link"><strong>Forgot Password</strong></a>
+                  <a [routerLink]="['/reset/password']" class="btn btn-link"><strong>Forgot Password</strong></a>
                 </div>
             </form>
         </div>

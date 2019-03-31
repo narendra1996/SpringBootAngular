@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { DataStoreService } from 'src/app/data-store.service';
 import { HomePageLoginService } from '../home-page-login.service';
 
 @Component({
@@ -23,8 +22,7 @@ export class LoginComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
-    private loginUser: HomePageLoginService,
-    private storeData: DataStoreService) { }
+    private loginUser: HomePageLoginService) { }
 
   ngOnInit() {
     this.loginUser.logoutUser();
@@ -44,11 +42,11 @@ export class LoginComponent implements OnInit {
       return;
     }
     this.loginUser.loginUser(this.loginForm).subscribe(success => {
-      console.log(success);
+      // console.log(success);
       localStorage.setItem('currentUser', 'narendra');
       this.routetoCourse(success);
     }, error => {
-      console.log(error);
+      // console.log(error);
       this.showErrMsg(error);
     });
     console.log(status);
@@ -56,7 +54,11 @@ export class LoginComponent implements OnInit {
 
   routetoCourse(success: any) {
     // this.storeData.storeData(success.data);
-    this.router.navigate(['/course/home', { id: success.data.id }]);
+    if (success.accountType === 'S') {
+      this.router.navigate(['/student/home', { id: success.id }]);
+    } else {
+      this.router.navigate(['/instructor/home', { id: success.id }]);
+    }
   }
 
   showErrMsg(error: any) {

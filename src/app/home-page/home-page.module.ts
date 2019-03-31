@@ -8,12 +8,15 @@ import { HomePageRegisterService } from './home-page-register.service';
 import { NgbAlertModule } from '@ng-bootstrap/ng-bootstrap';
 import { SidebarModule } from '../sidebar/sidebar.module';
 import { LoginComponent } from './login/login.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { HomePageService } from './home-page.service';
 
 
 @NgModule({
     declarations: [
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    ResetPasswordComponent
 ],
     imports: [
       BrowserModule,
@@ -25,7 +28,8 @@ import { LoginComponent } from './login/login.component';
       SidebarModule
     ],
     providers: [
-      HomePageRegisterService
+      HomePageRegisterService,
+      HomePageService
     ],
     bootstrap: []
   })

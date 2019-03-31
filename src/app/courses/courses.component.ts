@@ -14,7 +14,7 @@ export class CoursesComponent implements OnInit {
   lastName: string;
   id: string;
 
-  constructor(private dataService: DataStoreService, private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
     // this.userData = this.dataService.retrieveData();
@@ -23,6 +23,7 @@ export class CoursesComponent implements OnInit {
     this.route.paramMap.subscribe(params => {
       this.id = params.get('id');
     });
+
     console.log(this.id);
   }
 
