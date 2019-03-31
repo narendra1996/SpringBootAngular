@@ -10,6 +10,7 @@ import { HomePageService } from '../home-page.service';
 export class ResetPasswordComponent implements OnInit {
 
   resetForm: FormGroup;
+  passwordChangeFrom: FormGroup;
   loading = false;
   submitted = false;
   isRecoveryEmailSent = false;
@@ -29,9 +30,16 @@ export class ResetPasswordComponent implements OnInit {
       email: ['', [Validators.required, Validators.email]]
       // password: ['', [Validators.required, Validators.minLength(8)]]
     });
+    this.passwordChangeFrom = this.formBuilder.group({
+      recoveryPassword: ['', [Validators.required, Validators.minLength(8)]],
+      newPassword: ['', [Validators.required, Validators.minLength(8)]],
+      ConfirmPassword: ['', [Validators.required, Validators.minLength(8)]],
+    });
   }
 
   get f() { return this.resetForm.controls; }
+
+  get p() { return this.passwordChangeFrom.controls; }
 
   onSubmit() {
     this.submitted = true;
@@ -52,6 +60,14 @@ export class ResetPasswordComponent implements OnInit {
     }
   }
 
+  changePassword() {
+    this.submitted = true;
+    this.loading = true;
+    if (this.passwordChangeFrom.invalid) {
+      this.loading = false;
+      return;
+    }
+  }
   showErrMsg(error: any) {
     this.loading = false;
     this.showAlert = true;
@@ -65,7 +81,7 @@ export class ResetPasswordComponent implements OnInit {
     this.showAlert = true;
     this.alertType = 'success';
     this.alertMessage = 'Recovery password sent to your Email Address';
-    setTimeout(() => this.showAlert = false, 3000);
+    setTimeout(() => this.showAlert = false, 5000);
 
   }
 }

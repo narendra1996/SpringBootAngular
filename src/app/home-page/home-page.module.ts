@@ -4,7 +4,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomePageRoutingModule } from './home-page-routing.modules';
 import { RegisterComponent } from './register/register.component';
 import { MatSelectModule } from '@angular/material';
-import { HomePageRegisterService } from './home-page-register.service';
 import { NgbAlertModule } from '@ng-bootstrap/ng-bootstrap';
 import { SidebarModule } from '../sidebar/sidebar.module';
 import { LoginComponent } from './login/login.component';
@@ -28,7 +27,6 @@ import { HomePageService } from './home-page.service';
       SidebarModule
     ],
     providers: [
-      HomePageRegisterService,
       HomePageService
     ],
     bootstrap: []

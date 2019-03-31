@@ -1,8 +1,7 @@
 import { Component, OnInit} from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { HomePageRegisterService } from '../home-page-register.service';
-import { SidebarComponent } from '../../sidebar/sidebar.component';
+import { HomePageService } from '../home-page.service';
 
 @Component({
   selector: 'app-register',
@@ -22,7 +21,7 @@ export class RegisterComponent implements OnInit {
     constructor(
       private formBuilder: FormBuilder,
       private router: Router,
-      private register: HomePageRegisterService) { }
+      private homePageService: HomePageService) { }
 
   ngOnInit() {
     this.registerForm = this.formBuilder.group({
@@ -43,7 +42,7 @@ export class RegisterComponent implements OnInit {
       this.loading = false;
       return;
     }
-    this.register.registerUser(this.registerForm).subscribe(success => {
+    this.homePageService.registerUser(this.registerForm).subscribe(success => {
         console.log(success);
         this.routeToLogin();
         }, error => {

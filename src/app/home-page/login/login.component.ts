@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { HomePageLoginService } from '../home-page-login.service';
+import { HomePageService } from '../home-page.service';
 
 @Component({
   selector: 'app-login',
@@ -22,10 +22,10 @@ export class LoginComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
-    private loginUser: HomePageLoginService) { }
+    private homePageService: HomePageService) { }
 
   ngOnInit() {
-    this.loginUser.logoutUser();
+    this.homePageService.logoutUser();
     this.loginForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(8)]]
@@ -41,7 +41,7 @@ export class LoginComponent implements OnInit {
       this.loading = false;
       return;
     }
-    this.loginUser.loginUser(this.loginForm).subscribe(success => {
+    this.homePageService.loginUser(this.loginForm).subscribe(success => {
       // console.log(success);
       localStorage.setItem('currentUser', 'narendra');
       this.routetoCourse(success);

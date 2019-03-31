@@ -9,6 +9,34 @@ export class HomePageService {
 
   constructor(private http: HttpClient) { }
 
+  registerUser(registerForm: FormGroup) {
+    const jsonBody = {
+      firstName: registerForm.controls.firstName.value,
+      lastName: registerForm.controls.lastName.value,
+      email: registerForm.controls.email.value,
+      accountType: registerForm.controls.accountType.value,
+      password: registerForm.controls.password.value,
+    };
+    return this.http.post('http://localhost:9090/SpringBoot/course/register', jsonBody);
+  }
+
+  loginUser(loginForm: FormGroup) {
+    const jsonBody = {
+      email: loginForm.controls.email.value,
+      password: loginForm.controls.password.value
+    };
+    return this.http.post('http://localhost:9090/SpringBoot/course/login', jsonBody);
+  }
+
+  logoutUser() {
+    if (localStorage.getItem('currentUser')) {
+      localStorage.removeItem('currentUser');
+      return;
+    } else {
+      return;
+    }
+  }
+
   SendRecoveryEmail(resetForm: FormGroup) {
     // const jsonBody = {
     //   email: resetForm.controls.email.value
