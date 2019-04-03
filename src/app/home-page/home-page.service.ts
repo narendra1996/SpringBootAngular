@@ -38,11 +38,17 @@ export class HomePageService {
   }
 
   SendRecoveryEmail(resetForm: FormGroup) {
-    // const jsonBody = {
-    //   email: resetForm.controls.email.value
-    // };
     let requestParam = new HttpParams();
     requestParam = requestParam.set('emailId', resetForm.controls.email.value);
     return this.http.post('http://localhost:9090/SpringBoot/course/resetpassword', requestParam);
+  }
+
+  ChangePassword(passwordChangeFrom: FormGroup, emailId: any) {
+    const jsonBody = {
+      email: emailId,
+      resetPassword: passwordChangeFrom.controls.recoveryPassword.value,
+      password: passwordChangeFrom.controls.newPassword.value,
+    };
+    return this.http.post('http://localhost:9090/SpringBoot/course/changepassword', jsonBody);
   }
 }
