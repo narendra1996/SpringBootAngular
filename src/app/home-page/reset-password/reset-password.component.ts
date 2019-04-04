@@ -100,8 +100,7 @@ export class ResetPasswordComponent implements OnInit {
     this.showAlert = true;
     this.alertType = 'success';
     this.alertMessage = success.message;
-    setTimeout(() => this.showAlert = false, 5000);
-
+    setTimeout(() => this.showAlert = false, 3000);
   }
 
   routeToLogin() {
