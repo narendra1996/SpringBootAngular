@@ -2,6 +2,38 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { StudentService } from '../student.service';
 
+interface Country {
+  name: string;
+  area: number;
+  checked: boolean;
+  population: number;
+}
+const COUNTRIES: Country[] = [
+  {
+    name: 'Russia',
+    area: 17075200,
+    checked: false,
+    population: 146989754
+  },
+  {
+    name: 'Canada',
+    area: 9976140,
+    checked: false,
+    population: 36624199
+  },
+  {
+    name: 'United States',
+    area: 9629091,
+    checked: true,
+    population: 324459463
+  },
+  {
+    name: 'China',
+    area: 9596960,
+    checked: true,
+    population: 1409517397
+  }
+];
 @Component({
   selector: 'app-home-page',
   templateUrl: './home-page.component.html',
@@ -9,8 +41,9 @@ import { StudentService } from '../student.service';
 })
 export class HomePageComponent implements OnInit {
 
+  countries = COUNTRIES;
   id: string;
-
+  map = new Map();
   constructor(
     private route: ActivatedRoute,
     private studentService: StudentService
@@ -29,5 +62,7 @@ export class HomePageComponent implements OnInit {
       });
     }
   }
-
+  changed(event: any){
+    console.log(event);
+  }
 }
