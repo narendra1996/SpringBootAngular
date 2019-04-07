@@ -45,6 +45,8 @@
               <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
                   <div *ngIf="f.password.errors.required"><strong>Password required</strong></div>
                   <div *ngIf="f.password.errors.minlength"><strong>Choose a Password of at least 8 characters</strong></div>
+                  <div *ngIf="f.password.errors.maxlength"><strong>password should not be more than 14 characters</strong></div>
+                  <div *ngIf="f.password.errors.pattern"><small><strong id="small" >must contain at least one lowercase letter, one uppercase letter, one numeric digit, and one special character</strong></small></div>
               </div>
           </div>
           <div class="form-group">

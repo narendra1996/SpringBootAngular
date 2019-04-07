@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { StudentService } from '../student.service';
 
@@ -37,12 +37,16 @@ const COUNTRIES: Country[] = [
 @Component({
   selector: 'app-home-page',
   templateUrl: './home-page.component.html',
-  styleUrls: ['./home-page.component.scss']
+  styleUrls: ['./home-page.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class HomePageComponent implements OnInit {
 
   countries = COUNTRIES;
   id: string;
+  userData: any;
+  fName: string;
+  lName: string;
   map = new Map();
   constructor(
     private route: ActivatedRoute,
@@ -50,19 +54,20 @@ export class HomePageComponent implements OnInit {
     ) { }
 
   ngOnInit() {
-
     this.route.paramMap.subscribe(params => {
       this.id = params.get('id');
     });
     if (this.id !== null && this.id.length > 0) {
       this.studentService.fetchUserDetails(this.id).subscribe(success => {
-        console.log(success);
+        this.userData = success;
+        this.fName = this.userData.firstName;
+        this.lName = this.userData.lastName;
       }, error => {
         console.log(error);
       });
     }
   }
-  changed(event: any){
-    console.log(event);
+  changed(event: any) {
+    // console.log(event);
   }
 }

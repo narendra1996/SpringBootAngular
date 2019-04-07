@@ -5,6 +5,7 @@ import { StudentRoutingModule } from './student-routing.module';
 import { SidebarModule } from '../sidebar/sidebar.module';
 import { HomePageComponent } from './home-page/home-page.component';
 import { FormsModule } from '../../../node_modules/@angular/forms';
+import { MatTabsModule } from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { FormsModule } from '../../../node_modules/@angular/forms';
     StudentRoutingModule,
     SidebarModule,
     MatCheckboxModule,
-    FormsModule
+    FormsModule,
+    MatTabsModule
   ]
 })
 export class StudentModule { }

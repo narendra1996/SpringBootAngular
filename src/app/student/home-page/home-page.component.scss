@@ -1,0 +1,30 @@
+.mat-tab-group.mat-primary .mat-ink-bar, .mat-tab-nav-bar.mat-primary .mat-ink-bar {
+    background-color: #000000;
+}
+.mat-tab-labels {
+    background-color: rgb(82, 175, 179);
+}
+.mat-tab-label .mat-tab-label-content {
+    padding-right: 300px;
+    color: black;
+    font-size: larger;
+    opacity: 1.6;
+    width: 100%
+}
+#gridContainer{
+    margin-top: 100px;
+}
+#gridRow {
+    margin-right: 0px;
+    margin-left: 0px;
+}
+.mat-checkbox-inner-container {
+  height: 20px!important;
+  width: 20px!important;
+}
+.mat-checkbox {
+    margin-left: 25px;
+}
+.mat-checkbox-checked .mat-checkbox-background {
+    background-color: rgb(255, 255, 255) !important;
+  }

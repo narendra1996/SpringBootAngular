@@ -31,12 +31,23 @@ export class ResetPasswordComponent implements OnInit {
   ngOnInit() {
     this.resetForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]]
-      // password: ['', [Validators.required, Validators.minLength(8)]]
     });
     this.passwordChangeFrom = this.formBuilder.group({
       recoveryPassword: ['', [Validators.required, Validators.minLength(8)]],
-      newPassword: ['', [Validators.required, Validators.minLength(8)]],
-      ConfirmPassword: ['', [Validators.required, Validators.minLength(8)]],
+      newPassword: ['',
+      [
+      Validators.required,
+      Validators.minLength(8)],
+      Validators.maxLength(14),
+      Validators.pattern(/(((?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%_])).(?!.*\s)).{8,14}/)
+      ],
+      ConfirmPassword: ['',
+      [
+      Validators.required,
+      Validators.minLength(8)],
+      Validators.maxLength(14),
+      Validators.pattern(/(((?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%_])).(?!.*\s)).{8,14}/)
+    ],
     });
   }
 

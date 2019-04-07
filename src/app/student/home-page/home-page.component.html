@@ -1,8 +1,43 @@
-<!-- <app-sidebar></app-sidebar>
-<p>
+ <app-sidebar></app-sidebar>
+ <strong><h2>Hi {{ fName }} {{ lName}}</h2></strong> 
+  <mat-tab-group animationDuration="0ms">
+    <mat-tab label="View Courses">
+     <div id = "gridContainer">
+        <div id="gridRow" class="row">
+          <div class="col-sm-9 offset-sm-1">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Country</th>
+                  <th scope="col">Area</th>
+                  <th scope="col">Population</th>
+                  <th scope="col">check-box</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let country of countries; index as i">
+                  <th scope="row">{{ i + 1 }}</th>
+                  <td>{{ country.name }}</td>
+                  <td>{{ country.area | number }}</td>
+                  <td>{{ country.population | number }}</td>
+                  <td><mat-checkbox (change)="changed(country)"></mat-checkbox></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div> 
+    </mat-tab>
+    <mat-tab label="AddCourse"> Content 2 </mat-tab>
+    <mat-tab label="RemoveCourse"> Content 3 </mat-tab>
+  </mat-tab-group>
+ 
+
+<!-- <p>
   home-page works!
 </p> -->
-<div class="container">
+<!-- <div class="container">
   <div class="row">
     <div class="col-sm-9 offset-sm-1">
       <table class="table table-striped">
@@ -30,5 +65,5 @@
       </table>
     </div>
   </div>
-</div>
+</div> -->
 

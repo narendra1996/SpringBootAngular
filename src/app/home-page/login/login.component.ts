@@ -28,14 +28,14 @@ export class LoginComponent implements OnInit {
     this.homePageService.logoutUser();
     this.loginForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, 
-        Validators.minLength(8), 
-        Validators.maxLength(14)
+      password: ['', [Validators.required,
+      Validators.minLength(8),
+      Validators.maxLength(14)
       ]]
     });
   }
 
-  get f() { return this.loginForm.controls;}
+  get f() { return this.loginForm.controls; }
 
   onSubmit() {
     this.submitted = true;
